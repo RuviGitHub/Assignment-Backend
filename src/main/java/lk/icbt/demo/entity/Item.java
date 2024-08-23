@@ -59,7 +59,7 @@ public class Item {
 
     public enum Size {
         SMALL,
-        MEDUM,
+        MEDIUM,
         LARGE
     }
 

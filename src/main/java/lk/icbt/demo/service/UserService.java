@@ -58,4 +58,36 @@ public class UserService {
         }
     }
 
+    public ResponseDTO updateUser(UserDTO userDTO) {
+        // Check if the user exists by email
+        Optional<User> existingUserOpt = userRepository.findByEmail(userDTO.getEmail());
+        if (!existingUserOpt.isPresent()) {
+            return new ResponseDTO(404, "Error: User not found with this email.", null);
+        }
+
+        User existingUser = existingUserOpt.get();
+
+        // Update the user's details
+        existingUser.setFullName(userDTO.getFullName());
+        existingUser.setMobile(userDTO.getMobile());
+        existingUser.setPassword(userDTO.getPassword()); // Consider encrypting the password if not already done
+        existingUser.setAddressLine01(userDTO.getAddressLine01());
+        existingUser.setAddressLine02(userDTO.getAddressLine02());
+        existingUser.setState(userDTO.getState());
+        existingUser.setCountry(userDTO.getCountry());
+        existingUser.setCardName(userDTO.getCardName());
+        existingUser.setCardHolder(userDTO.getCardHolder());
+        existingUser.setCardNo(userDTO.getCardNo());
+        existingUser.setExp(userDTO.getExp());
+        existingUser.setCvv(userDTO.getCvv());
+        existingUser.setStatus(User.Status.valueOf(userDTO.getStatus()));
+
+        // Save the updated user information
+        User updatedUser = userRepository.save(existingUser);
+
+        // Return a success response
+        return new ResponseDTO(200, "Message: User updated successfully.", updatedUser);
+    }
+
+
 }

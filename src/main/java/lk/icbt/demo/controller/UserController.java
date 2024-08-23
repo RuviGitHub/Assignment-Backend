@@ -27,4 +27,10 @@ public class UserController {
         ResponseDTO response = userService.loginUser(loginDTO);
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+    @PostMapping("/update")
+    public ResponseEntity<ResponseDTO> updateUser(@RequestBody UserDTO userDTO) {
+        ResponseDTO response = userService.updateUser(userDTO);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
 }

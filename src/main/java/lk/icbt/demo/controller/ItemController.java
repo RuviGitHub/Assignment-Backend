@@ -33,7 +33,7 @@ public class ItemController {
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
 
-    @GetMapping("/filtered-items")
+    @GetMapping("/all-items")
     public ResponseEntity<ResponseDTO> getItemsByFilters(
             @RequestParam(required = false) Double minPrice,
             @RequestParam(required = false) Double maxPrice,
