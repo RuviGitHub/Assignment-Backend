@@ -19,6 +19,7 @@ public interface ItemRepository extends JpaRepository<Item,Long>{
 
     List<Item> findByCategory(Item.Category category);
 
+    List<Item> findAllById(Long id);
 
     List<Item> findByItemPriceBetween(Double minPrice, Double maxPrice);
 
