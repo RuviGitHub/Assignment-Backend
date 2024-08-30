@@ -26,4 +26,11 @@ public class OrderController {
         ResponseDTO response = orderService.getAllOrders();
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+    @GetMapping("/update/{id}")
+    public ResponseEntity<ResponseDTO> updateOrder(@PathVariable Long id) {
+        System.out.println(id);
+        ResponseDTO response = orderService.updateOrder(id);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
 }

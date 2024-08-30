@@ -26,4 +26,10 @@ public class InquiryController {
         ResponseDTO response = inquiryService.getAllInquiries();
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+    @GetMapping("/update/{id}/{resp}")
+    public ResponseEntity<ResponseDTO> updateInquiry(@PathVariable Long id, @PathVariable String resp) {
+        ResponseDTO response = inquiryService.updateInquiry(id,resp);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
 }

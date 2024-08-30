@@ -52,8 +52,9 @@ public class Reservation {
     private Boolean isDeleted;
 
     public enum Status {
-        ACTIVE,
-        INACTIVE
+        PENDING,
+        COMPLETED,
+        CANCELED
     }
 
     public enum Buffet {

@@ -66,7 +66,8 @@ public class CartService {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
-        return new ResponseDTO(200, "Message: Carts fetched.", cartReturnDTOs);
+//        return new ResponseDTO(200, "Message: Carts fetched.", cartReturnDTOs);
+        return new ResponseDTO(401, "Message: Session expired.", cartReturnDTOs);
     }
 
     public void clearCartByCustomerId(Long customerId) {

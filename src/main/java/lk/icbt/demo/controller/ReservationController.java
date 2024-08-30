@@ -28,4 +28,11 @@ public class ReservationController {
         ResponseDTO response = reservationService.getAllReservations();
         return ResponseEntity.status(response.getStatusCode()).body(response);
     }
+
+    @GetMapping("/update/{id}")
+    public ResponseEntity<ResponseDTO> updateReservation(@PathVariable Long id) {
+        System.out.println(id);
+        ResponseDTO response = reservationService.updateReservation(id);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
+    }
 }
